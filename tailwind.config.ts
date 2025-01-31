@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
   content: [
@@ -10,6 +11,11 @@ export default {
     extend: {
       colors: {
         background: "#F6F3F1",
+        primary: "#FFDF61",
+      },
+      fontFamily: {
+        "museo-moderno": ["var(--font-museo-moderno)", ...fontFamily.sans],
+        "red-hat-display": ["var(--font-red-hat-display)", ...fontFamily.sans],
       },
     },
   },
