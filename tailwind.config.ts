@@ -12,6 +12,7 @@ export default {
       colors: {
         background: "#F6F3F1",
         primary: "#FFDF61",
+        dark: "#21200E",
       },
       fontFamily: {
         "museo-moderno": ["var(--font-museo-moderno)", ...fontFamily.sans],

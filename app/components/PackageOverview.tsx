@@ -37,7 +37,7 @@ export default function PackageOverview({
 
   return (
     // <div className="flex-shrink-0 w-[320px] bg-white rounded-[50px] px-6 py-8">
-    <div className="flex-shrink-0 w-[320px] bg-white rounded-[50px] px-6 py-8">
+    <div className="flex-shrink-0 w-[320px] bg-white rounded-3xl px-6 py-8">
       <h3 className="font-bold text-4xl font-museo-moderno ml-2 mb-4">
         {title}
       </h3>
