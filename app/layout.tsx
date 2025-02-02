@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MuseoModerno, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // Load MuseoModerno for headers
 const museoModerno = MuseoModerno({
@@ -36,6 +37,8 @@ export default function RootLayout({
         <div className="w-[calc(100%-30px)] mt-4 flex flex-col items-center">
           <Navbar />
           {children}
+
+          <Footer />
         </div>
       </body>
     </html>

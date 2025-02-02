@@ -8,81 +8,7 @@ import Link from "next/link";
 import PackageOverview from "./components/PackageOverview";
 import TestimonialCard from "./components/TestimonialCard";
 import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
-
-// Define the Feature interface
-interface Feature {
-  included: boolean;
-  description: string;
-}
-
-// Define the Package interface
-interface Package {
-  title: string;
-  features: Feature[]; // features is an array of Feature objects
-}
-
-// Define the packages array with the correct type
-const packages: Package[] = [
-  {
-    title: "Standard",
-    features: [
-      { included: true, description: "4 hours of access" },
-      { included: true, description: "Setup & Breakdown" },
-      { included: true, description: "Unlimited Digital Pictures & Gifs" },
-      { included: false, description: "Booth Attendant" },
-      {
-        included: false,
-        description: "4x6 prints with Custom print overlay templates",
-      },
-      { included: false, description: "Photo Album" },
-    ],
-  },
-  {
-    title: "Essential",
-    features: [
-      { included: true, description: "5 hours of access" },
-      { included: true, description: "Setup & Breakdown" },
-      { included: true, description: "Booth Attendant" },
-      {
-        included: true,
-        description: "4x6 prints with Custom print overlay templates",
-      },
-      { included: false, description: "Photo Album" },
-    ],
-  },
-  {
-    title: "Premium",
-    features: [
-      { included: true, description: "5 hours of access" },
-      { included: true, description: "Setup & Breakdown" },
-      { included: true, description: "Booth Attendant" },
-      {
-        included: true,
-        description: "4x6 prints with Custom print overlay templates",
-      },
-      { included: true, description: "Photo Album" },
-    ],
-  },
-];
-
-const testimonialsPeople: { name: string; description: string }[] = [
-  {
-    name: "Mark T.",
-    description:
-      "“The team at PhotoPhoria made everything so easy. Their photo booth was a hit at our corporate event, and the props were a blast!”",
-  },
-  {
-    name: "Emily & Jason",
-    description:
-      "“PhotoPhoria was the highlight of our wedding! The photobooth added so much fun, and the pictures turned out amazing. Everyone loved it!”",
-  },
-  {
-    name: "Sarah L.",
-    description:
-      "“Our guests couldn’t stop talking about the photo booth! The photos are such a fun way to relive the night—thank you, PhotoPhoria!”",
-  },
-];
+import { packages, testimonialsPeople } from "./constants";
 
 const mapPackages = packages.map((item) => (
   <PackageOverview
@@ -131,7 +57,10 @@ export default function Home() {
       scrollToMiddle(testimonialsRef.current);
     }
     setLoading(false); // Set loading to false after scrolling
-  }, []); //TODO: add loading animation for all images for example opening twitter for the first time
+  }, []);
+
+  //TODO:
+  // - add loading animation for all images for example opening twitter for the first time
   // - add mute/unmute button for video
   // - animations
   // - make consts file
@@ -146,7 +75,7 @@ export default function Home() {
           src="/assets/pp-group-1.jpg"
           alt="group photo of people using the photo booth"
           className="rounded-xl object-cover w-full h-full absolute z-10"
-          onLoadingComplete={() => setLoading(false)}
+          onLoad={() => setLoading(false)}
           fill
         />
         <div className="flex flex-col items-center  mx-2 z-20">
@@ -276,7 +205,6 @@ export default function Home() {
         <FAQ />
       </div>
       {/* Footer  */}
-      <Footer />
     </div>
   );
 }

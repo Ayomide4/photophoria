@@ -9,9 +9,16 @@ interface item {
 export default function PackageOverview({
   title,
   features,
+  buttonText,
+  buttonColor,
+  bgColor,
 }: {
   title: string;
   features: item[];
+  buttonText?: string;
+  buttonColor?: string;
+  buttonTextColor?: string;
+  bgColor?: string;
 }) {
   const renderFeatures = features.map((item: item, index: number) => {
     return (
@@ -37,16 +44,19 @@ export default function PackageOverview({
 
   return (
     // <div className="flex-shrink-0 w-[320px] bg-white rounded-[50px] px-6 py-8">
-    <div className="flex-shrink-0 w-[320px] bg-white rounded-3xl px-6 py-8">
-      <h3 className="font-bold text-4xl font-museo-moderno ml-2 mb-4">
+    <div
+      className={`flex-shrink-0 w-[320px] ${bgColor ? bgColor : "bg-white"} rounded-3xl px-6 py-8`}
+    >
+      <h3 className="flex font-bold text-3xl font-museo-moderno ml-2 mb-4  text-left text-nowrap">
         {title}
       </h3>
       <ul className="flex flex-col gap-y-3 mb-1">{renderFeatures}</ul>
       <Link
         href="/packages"
-        className="bg-primary text-black font-bold rounded-full px-4 py-4 mt-4 w-full flex items-center justify-center"
+        scroll={true}
+        className={`${buttonColor ? `text-white ${buttonColor}` : "bg-primary"} text-black font-bold rounded-full px-4 py-4 mt-4 w-full flex items-center justify-center`}
       >
-        VIEW PACKAGES
+        {buttonText ? buttonText : "VIEW PACKAGES"}
       </Link>
     </div>
   );

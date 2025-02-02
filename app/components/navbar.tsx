@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="w-full mb-4">
+    <nav className="w-full mb-4 z-10">
       <ul className="flex justify-between items-center w-full ">
         <Link href="/">
           <li className="cursor-pointer">

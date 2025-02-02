@@ -15,15 +15,17 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="flex flex-col mb-10 bg-primary w-full rounded-b-lg p-6 pb-10 border border-">
+    <div className="flex flex-col mb-10 bg-primary w-full rounded-b-lg p-6 pb-10 ">
       <h2 className="font-bold text-3xl font-museo-moderno mb-4">
         Frequently Asked Questions
       </h2>
       {faqs.map((question, index) => (
         <div
           key={index}
-          className={`mb-4 cursor-pointer ${
-            openIndex === index ? "font-bold text-xl" : ""
+          className={`mb-4 cursor-pointer transition-all duration-300${
+            openIndex === index
+              ? "font-bold text-xl opacity-100"
+              : "opacity-100"
           }`}
           onClick={() => toggleFAQ(index)}
         >

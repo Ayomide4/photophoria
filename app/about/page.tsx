@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import CoreValues from "../components/CoreValues";
 import Video from "../components/Video";
 import Image from "next/image";
@@ -26,7 +27,7 @@ export default function About() {
             </div>
             <h1 className="text-xl">About Us</h1>
           </div>
-          <h2 className="font-bold text-3xl/8 mb-4 ">
+          <h2 className="font-bold text-2xl/8 mb-4 ">
             Photo booth rentals for unforgettable moments
           </h2>
           <p className="text-lg mb-2">
@@ -52,12 +53,24 @@ export default function About() {
           className=" rounded-[30px]"
         />
       </div>
-      <div className="w-full">
+      <div className="w-full mb-20">
         <h2 className="font-museo-moderno text-xl text-center mb-8">
           Our Core Values
         </h2>
         <CoreValues />
       </div>
+      <div className="w-full h-96 relative rounded-full mb-10">
+        <Video
+          videoSrc="/assets/photophoria2.1.mp4"
+          className=" rounded-[30px]"
+        />
+      </div>
+      <Link
+        href="/contact"
+        className="bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center h-12 mb-10"
+      >
+        Book Now
+      </Link>{" "}
     </div>
   );
 }
