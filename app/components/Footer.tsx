@@ -24,7 +24,6 @@ export default function Footer() {
           <div className="flex justify-start  gap-4">
             <div>
               <a href="mailto:info@photophoria.co">INFO@PHOTOPHORIA.CO</a>
-              <p>999 999 9999</p>
             </div>
           </div>
         </div>
@@ -55,7 +54,7 @@ export default function Footer() {
           <p>Contact: info@lonestarwebstudio.com</p>
         </div>
         <Link
-          href="/"
+          href="mailto:info@photophoria.co"
           className="bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center mb-6"
         >
           Leave a Review

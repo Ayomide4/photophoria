@@ -12,6 +12,7 @@ export default {
       colors: {
         background: "#F6F3F1",
         primary: "#FFDF61",
+        secondary: "#D2C4FF",
         dark: "#21200E",
       },
       fontFamily: {
