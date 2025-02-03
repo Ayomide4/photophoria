@@ -28,9 +28,9 @@ export default function Navbar() {
   //  - bg animation
 
   return (
-    <nav className="w-full mb-4 z-50 bordr border-black">
+    <nav className="w-full mb-4 z-40 ">
       {/* Top Navbar */}
-      <ul className="flex justify-between items-center w-full z-50 relative  ">
+      <ul className="flex justify-between items-center w-full  relative  z-40">
         <Link href="/">
           <li className="cursor-pointer">
             <Image src="/assets/logo1.png" alt="logo" width={75} height={33} />
@@ -61,10 +61,10 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "-100%", opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed inset-0 bg-[#EB8C6C] p-10 z-40 flex flex-col justify-between font-red-hat-display"
+            className="fixed inset-0 bg-[#EB8C6C] p-10 z-30 flex flex-col justify-evenly font-red-hat-display"
           >
             {/* Menu List */}
-            <ul className="flex flex-col space-y-4 text-black text-4xl font-semibold mt-20 ml-10 w-fit">
+            <ul className="flex flex-col space-y-4 text-black text-4xl font-semibold mt-10 ml-10 w-fit">
               {[
                 { name: "HOME", href: "/" },
                 { name: "ABOUT", href: "/about" },
