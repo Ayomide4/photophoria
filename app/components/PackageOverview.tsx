@@ -22,8 +22,8 @@ export default function PackageOverview({
 }) {
   const renderFeatures = features.map((item: item, index: number) => {
     return (
-      <li key={index}>
-        <div className="flex  items-start">
+      <li key={index} className="">
+        <div className="flex items-start">
           {item.included ? (
             <Image
               src="/assets/check-circle.svg"
@@ -45,16 +45,16 @@ export default function PackageOverview({
   return (
     // <div className="flex-shrink-0 w-[320px] bg-white rounded-[50px] px-6 py-8">
     <div
-      className={`flex-shrink-0 w-[320px] ${bgColor ? bgColor : "bg-white"} rounded-3xl px-6 py-8`}
+      className={`relative flex-shrink-0 flex flex-col justify-between w-[320px]  ${bgColor ? bgColor : "bg-white"} rounded-3xl px-8 py-10`}
     >
-      <h3 className="flex font-bold text-3xl font-museo-moderno ml-2 mb-4  text-left text-nowrap">
+      <h3 className="flex font-bold text-3xl font-museo-moderno mb-4  text-left text-nowrap ">
         {title}
       </h3>
-      <ul className="flex flex-col gap-y-3 mb-1">{renderFeatures}</ul>
+      <ul className="flex flex-col gap-y-3 mb-8">{renderFeatures}</ul>
       <Link
         href="/packages"
         scroll={true}
-        className={`${buttonColor ? `text-white ${buttonColor}` : "bg-primary"} text-black font-bold rounded-full px-4 py-4 mt-4 w-full flex items-center justify-center`}
+        className={`${buttonColor ? `text-white ${buttonColor}` : "bg-primary"} text-black font-bold rounded-2xl px-4 py-4 mt-4 w-full flex items-center justify-center `}
       >
         {buttonText ? buttonText : "VIEW PACKAGES"}
       </Link>

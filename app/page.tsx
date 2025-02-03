@@ -66,7 +66,7 @@ export default function Home() {
   // - make consts file
 
   return (
-    <div className=" w-full h-full flex  flex-col items-center gap-y-6">
+    <div className=" w-full h-full flex  flex-col items-center gap-y-6 z-0">
       <div className="w-full h-[31.25rem]  rounded-xl flex flex-col-reverse relative ">
         {isLoading && (
           <Skeleton className="w-full h-full absolute z-10 rounded-xl" />
@@ -128,8 +128,9 @@ export default function Home() {
           Our Packages
         </h2>
 
+        {/* FIXME: TURN THIS INTO IT SEPERATE DIV */}
         <div
-          className="flex overflow-x-auto gap-4 pb-4 no-scrollbar w-full px-4"
+          className="flex overflow-x-auto gap-4  no-scrollbar w-full px-4 "
           ref={containerRef}
         >
           {mapPackages}
@@ -176,7 +177,7 @@ export default function Home() {
         </div>
         <Link
           href="/gallery"
-          className="bg-primary text-black font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center"
+          className="bg-primary text-black font-bold rounded-full px-4 py-4 mt-4 w-full flex items-center justify-center mb-10"
         >
           See Our Gallery
         </Link>
