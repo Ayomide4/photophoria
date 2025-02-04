@@ -17,6 +17,8 @@ export default function Footer() {
               <Link href="/packages">PACKAGES</Link>
               <Link href="/gallery">GALLERY</Link>
             </div>
+
+            <Link href="/contact">CONTACT</Link>
           </div>
         </div>
         <div className=" flex flex-col mb-8">

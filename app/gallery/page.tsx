@@ -82,7 +82,7 @@ export default function Gallery() {
             {images.map((src, i) => (
               <div
                 key={i}
-                className="w-48 h-48 flex-shrink-0 relative snap-center"
+                className="w-72 h-72 flex-shrink-0 relative snap-center"
               >
                 <Image
                   src={src}
