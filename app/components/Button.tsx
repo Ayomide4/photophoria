@@ -4,13 +4,15 @@ import Link from "next/link";
 export default function Button({
   text,
   invert,
+  link,
 }: {
   text: string;
   invert?: boolean;
+  link: string;
 }) {
   return (
     <Link
-      href="/contact"
+      href={`/${link}`}
       className={`rounded-full ${invert ? "bg-black" : "bg-primary"} flex items-center p-1 justify-between group cursor-pointer lg:p-1`}
     >
       {/* Arrow container */}
@@ -21,7 +23,7 @@ export default function Button({
       </div>
       {/* Text */}
       <p
-        className={`${invert ? "text-primary" : "text-black"} md:text-lg mr-4 font-semibold lg:text-xl`}
+        className={`${invert ? "text-primary" : "text-black"}  mr-4 font-semibold lg:text-xl md:mr-6`}
       >
         {text}
       </p>

@@ -15,7 +15,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="flex flex-col mb-10 bg-primary w-full rounded-b-lg p-6 pb-10 ">
+    <div className="flex flex-col mb-10 bg-primary w-full rounded-b-lg p-6 pb-10 md:h-full md:mb-0">
       <h2 className="font-bold text-3xl font-museo-moderno mb-4">
         Frequently Asked Questions
       </h2>

@@ -94,6 +94,16 @@ export const testimonialsPeople: { name: string; description: string }[] = [
     description:
       "“Our guests couldn’t stop talking about the photo booth! The photos are such a fun way to relive the night—thank you, PhotoPhoria!”",
   },
+  {
+    name: "Mark T.",
+    description:
+      "“The team at PhotoPhoria made everything so easy. Their photo booth was a hit at our corporate event, and the props were a blast!”",
+  },
+  {
+    name: "Mark T.",
+    description:
+      "“The team at PhotoPhoria made everything so easy. Their photo booth was a hit at our corporate event, and the props were a blast!”",
+  },
 ];
 
 // Full Packages and Features

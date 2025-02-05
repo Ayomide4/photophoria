@@ -43,9 +43,9 @@ const renderCards = packages.map((item, index: number) => {
   );
 });
 
-const renderTestimonials = testimonialsPeople.map((item) => (
+const renderTestimonials = testimonialsPeople.map((item, index) => (
   <TestimonialCard
-    key={item.name}
+    key={index}
     name={item.name}
     description={item.description}
   />
@@ -116,23 +116,23 @@ export default function Home() {
             Book Now
           </button>
           <div className="hidden md:block md:absolute bottom-8 right-4">
-            <Button text="Book Now" />
+            <Button text="Book Now" link="contact" />
           </div>
         </div>
       </div>
       {/* about */}
-      <div className="w-full  flex flex-col items-center  ">
-        <div className="w-full h-96 relative rounded-full">
+      <div className="w-full  flex flex-col items-center md:flex-row-reverse md:h-[65vh]">
+        <div className="w-full h-96 relative rounded-full md:h-full">
           <Video
             videoSrc="/assets/photophoria1.mp4"
-            className="rounded-b-none rounded-t-xl"
+            className="rounded-b-none rounded-t-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl md:h-full"
           />
         </div>
-        <div className="w-full  relative rounded-t-none rounded-b-xl bg-primary p-4">
+        <div className="w-full  relative rounded-t-none rounded-b-xl bg-primary p-4  md:rounded-none md:h-full md:rounded-tl-xl md:rounded-bl-xl md:p-6">
           <h2 className="font-bold text-3xl/8 font-museo-moderno mb-4 ">
             Turning Moments Into Magic
           </h2>
-          <p className="mb-2 text-lg">
+          <p className="mb-2 text-lg ">
             At PhotoPhoria, we specialize in photobooth rentals that bring
             connection, joy, and unforgettable memories to every event—weddings,
             birthdays, corporate gatherings, and more.{" "}
@@ -144,10 +144,13 @@ export default function Home() {
 
           <Link
             href="/about"
-            className="w-14 h-14 rounded-xl bg-black flex items-center justify-center"
+            className="w-14 h-14 rounded-xl bg-black flex items-center justify-center md:hidden"
           >
             <RightArrow />
           </Link>
+          <div className="hidden md:block md:absolute bottom-10 left-6">
+            <Button text="Learn More" invert={true} link="about" />
+          </div>
         </div>
       </div>
       {/* Package scroll */}
@@ -165,9 +168,9 @@ export default function Home() {
         </div>
       </div>
       {/* gallery */}
-      <div className="w-full  gap-y-2 flex flex-col">
+      <div className="w-full  gap-y-2 flex flex-col ">
         {/* Flex container for the first two images */}
-        <div className="w-full flex gap-x-2">
+        <div className="w-full flex gap-x-2 ">
           <div className="flex-1 relative h-52 ">
             <Image
               src="/assets/img1.png"
@@ -205,35 +208,34 @@ export default function Home() {
         </div>
         <Link
           href="/gallery"
-          className="bg-primary text-black font-bold rounded-full px-4 py-4 mt-4 w-full flex items-center justify-center mb-10"
+          className="bg-primary text-black font-bold rounded-full px-4 py-4 mt-4 w-full flex items-center justify-center mb-10 md:w-52 self-center"
         >
           See Our Gallery
         </Link>
       </div>{" "}
       {/* testimonials */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center md:w-full ">
         <h2 className="font-bold text-2xl font-museo-moderno mb-6 ">
           What Our Clients Are Saying
         </h2>
 
         <div
           ref={testimonialsRef}
-          className="flex overflow-x-auto gap-4 pb-4 no-scrollbar w-96 px-4 "
+          className="flex overflow-x-auto gap-4 pb-4 no-scrollbar w-96 px-4 md:w-full"
         >
           {renderTestimonials}
         </div>
       </div>
       {/* Frequently Asked Questions */}
-      <div className="w-full  flex flex-col items-center  ">
-        <div className="w-full h-96 relative rounded-full">
+      <div className="w-full  flex flex-col items-center md:flex-row md:h-[65vh]  md:mb-8">
+        <div className="w-full h-96 relative rounded-full md:h-full">
           <Video
             videoSrc="/assets/photophoria2.mp4"
-            className="rounded-b-none rounded-t-xl"
+            className="rounded-b-none rounded-t-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl md:h-full"
           />
         </div>
         <FAQ />
       </div>
-      {/* Footer  */}
     </div>
   );
 }

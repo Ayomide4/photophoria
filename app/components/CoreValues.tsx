@@ -45,7 +45,9 @@ const CoreValues = () => {
                 isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <p className="text-gray-600 w-[90%]">{item.description}</p>
+              <p className="text-gray-600 w-[90%] md:text-xl">
+                {item.description}
+              </p>
             </div>
             {/* Arrow Container */}
             <div
