@@ -5,18 +5,43 @@ import { useEffect, useRef, useState } from "react";
 import Video from "./components/Video";
 import { RightArrow } from "@/public/assets/svg";
 import Link from "next/link";
-import PackageOverview from "./components/PackageOverview";
 import TestimonialCard from "./components/TestimonialCard";
 import FAQ from "./components/FAQ";
 import { packages, testimonialsPeople } from "./constants";
+import FeatureList from "./components/FeatureList";
+import Button from "./components/Button";
 
-const mapPackages = packages.map((item) => (
-  <PackageOverview
-    key={item.title}
-    title={item.title}
-    features={item.features}
-  />
-));
+const renderCards = packages.map((item, index: number) => {
+  return (
+    <div
+      key={item.title}
+      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-8 py-6 justify-between min-h-[400px]" // Set consistent height
+    >
+      {/* Title with Fixed Height */}
+      <div className="h-[60px] flex items-center">
+        <h3 className="font-bold text-3xl font-museo-moderno text-left text-nowrap">
+          {item.title}
+        </h3>
+      </div>
+
+      {/* Feature List - Takes Up Remaining Space */}
+      <div className="flex-grow flex flex-col">
+        <ul className="flex-grow mb-8">
+          <FeatureList packageIndex={index} />
+        </ul>
+      </div>
+
+      {/* Button */}
+      <Link
+        href="/packages"
+        scroll={true}
+        className="bg-primary text-black font-bold rounded-2xl px-4 py-4 w-full flex items-center justify-center mt-auto"
+      >
+        VIEW PACKAGES
+      </Link>
+    </div>
+  );
+});
 
 const renderTestimonials = testimonialsPeople.map((item) => (
   <TestimonialCard
@@ -67,29 +92,32 @@ export default function Home() {
 
   return (
     <div className=" w-full h-full flex  flex-col items-center gap-y-6 z-0">
-      <div className="w-full h-[31.25rem]  rounded-xl flex flex-col-reverse relative ">
+      <div className="w-full h-[31.25rem]  rounded-xl flex flex-col-reverse relative md:h-[80vh] md:rounded-3xl ">
         {isLoading && (
-          <Skeleton className="w-full h-full absolute z-10 rounded-xl" />
+          <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
         )}
         <Image
           src="/assets/pp-group-1.jpg"
           alt="group photo of people using the photo booth"
-          className="rounded-xl object-cover w-full h-full absolute z-10"
+          className="rounded-xl object-cover w-full h-full absolute z-10 md:rounded-3xl "
           onLoad={() => setLoading(false)}
           fill
         />
-        <div className="flex flex-col items-center  mx-2 z-20">
-          <div className="mb-4 text-white px-4">
-            <p className=" font-red-hat-display  text-nowrap">
+        <div className="flex flex-col items-center  mx-2 z-20 md:items-start">
+          <div className="mb-4 text-white px-4 md:mb-8">
+            <p className=" font-red-hat-display text-nowrap md:text-lg lg:text-2xl">
               Introducing PhotoPhoria ‘s Photo Booth Rental
             </p>
-            <h1 className="font-museo-moderno text-3xl/8 font-bold">
+            <h1 className="font-museo-moderno text-3xl/8 font-bold md:text-4xl md:w-4/5 lg:w-fit lg:text-6xl">
               Your Moment, Perfectly Captured{" "}
             </h1>
           </div>
-          <button className="w-full h-10 rounded-full bg-primary text-lg font-bold mb-4">
+          <button className="md:hidden w-full h-10 rounded-full bg-primary text-lg font-bold mb-4">
             Book Now
           </button>
+          <div className="hidden md:block md:absolute bottom-8 right-4">
+            <Button text="Book Now" />
+          </div>
         </div>
       </div>
       {/* about */}
@@ -133,7 +161,7 @@ export default function Home() {
           className="flex overflow-x-auto gap-4  no-scrollbar w-full px-4 "
           ref={containerRef}
         >
-          {mapPackages}
+          {renderCards}{" "}
         </div>
       </div>
       {/* gallery */}

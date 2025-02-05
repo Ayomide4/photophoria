@@ -28,12 +28,18 @@ export default function Navbar() {
   //  - bg animation
 
   return (
-    <nav className="w-full mb-4 z-40 ">
+    <nav className="w-full mb-4 z-40 md:absolute md:p-4">
       {/* Top Navbar */}
       <ul className="flex justify-between items-center w-full  relative  z-40">
         <Link href="/">
           <li className="cursor-pointer">
-            <Image src="/assets/logo1.png" alt="logo" width={75} height={33} />
+            <Image
+              src="/assets/logo1.png"
+              alt="logo"
+              width={75}
+              height={33}
+              className="w-[75px] h-[33px] md:w-[100px] md:h-[44px] lg:w-[120px] lg:h-[53px]"
+            />
           </li>
         </Link>
         <li
@@ -46,7 +52,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="text-lg font-semibold transition-transform duration-300"
+            className="text-lg font-semibold transition-transform duration-300 md:text-xl lg:text-2xl"
           >
             {isOpen ? "Close" : "Menu"}
           </motion.p>

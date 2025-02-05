@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { MuseoModerno, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 
 // Load MuseoModerno for headers
@@ -34,7 +34,7 @@ export default function RootLayout({
       className={`${museoModerno.variable} ${redHatDisplay.variable}`}
     >
       <body className="antialiased flex flex-col items-center bg-background">
-        <div className="w-[calc(100%-30px)] mt-4 flex flex-col items-center">
+        <div className="w-[calc(100%-30px)] mt-4 flex flex-col items-center md:relative">
           <Navbar />
           {children}
 

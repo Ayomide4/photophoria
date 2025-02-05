@@ -30,10 +30,21 @@ export const packages: Package[] = [
     features: [
       { included: true, description: "5 hours of access" },
       { included: true, description: "Setup & Breakdown" },
-      { included: true, description: "Booth Attendant" },
+      {
+        included: true,
+        description: " Unlimited Digital pictures, videos, boomerangs & GIFs",
+      },
+      {
+        included: true,
+        description: "Virtual booth link",
+      },
       {
         included: true,
         description: "4x6 prints with Custom print overlay templates",
+      },
+      {
+        included: true,
+        description: " Standard backdrop",
       },
       { included: false, description: "Photo Album" },
     ],
@@ -41,14 +52,28 @@ export const packages: Package[] = [
   {
     title: "Premium",
     features: [
-      { included: true, description: "5 hours of access" },
+      { included: true, description: "6 hours of access" },
       { included: true, description: "Setup & Breakdown" },
-      { included: true, description: "Booth Attendant" },
+      {
+        included: true,
+        description: " Unlimited Digital pictures, videos, boomerangs & GIFs",
+      },
+      {
+        included: true,
+        description: "Virtual booth link",
+      },
       {
         included: true,
         description: "4x6 prints with Custom print overlay templates",
       },
-      { included: true, description: "Photo Album" },
+      {
+        included: true,
+        description: " Standard backdrop",
+      },
+      {
+        included: true,
+        description: "Instant digital sharing",
+      },
     ],
   },
 ];
@@ -136,7 +161,7 @@ export const fullPackages: Package[] = [
   {
     title: "Premium Package",
     features: [
-      { included: true, description: "5 hours of access" },
+      { included: true, description: "6 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
