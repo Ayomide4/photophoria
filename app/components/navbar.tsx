@@ -1,4 +1,5 @@
 "use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { RightArrow } from "@/public/assets/svg";
 import Image from "next/image";
@@ -8,29 +9,17 @@ import { useEffect, useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  // Disable scrolling when menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    // Cleanup function to reset overflow when component unmounts
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
 
-  //TODO:
-  //- add animations
-  //  - underline animation outpost.design
-  //  - bg animation
-
   return (
     <nav className="w-full mb-4 z-40 md:absolute md:p-4">
       {/* Top Navbar */}
-      <ul className="flex justify-between items-center w-full  relative  z-40">
+      <ul className="flex justify-between items-center w-full relative z-40">
         <Link href="/">
           <li className="cursor-pointer">
             <Image
@@ -52,7 +41,7 @@ export default function Navbar() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="text-lg font-semibold transition-transform duration-300 md:text-xl lg:text-2xl"
+            className="text-lg font-semibold transition-transform duration-300 md:text-xl lg:text-2xl "
           >
             {isOpen ? "Close" : "Menu"}
           </motion.p>
@@ -70,7 +59,7 @@ export default function Navbar() {
             className="fixed inset-0 bg-[#EB8C6C] p-10 z-30 flex flex-col justify-evenly font-red-hat-display"
           >
             {/* Menu List */}
-            <ul className="flex flex-col space-y-4 text-black text-4xl font-semibold mt-10 ml-10 w-fit">
+            <ul className="flex flex-col space-y-6 text-black text-4xl font-semibold mt-10 ml-10 w-fit">
               {[
                 { name: "HOME", href: "/" },
                 { name: "ABOUT", href: "/about" },
@@ -84,13 +73,16 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ delay: 0.2 + index * 0.1 }}
+                  className="relative group w-fit"
                 >
                   <Link
                     href={item.href}
-                    className="block py-2"
+                    className="block py-2 relative overflow-hidden"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
+                    {/* Underline Animation */}
+                    <motion.div className="absolute left-0 bottom-0 h-[2px] bg-black w-full scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
                   </Link>
                 </motion.li>
               ))}

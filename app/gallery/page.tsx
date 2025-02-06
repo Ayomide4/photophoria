@@ -75,12 +75,12 @@ export default function Gallery() {
         Welcome to our gallery. Here are some highlights from our clients.
       </p>
 
-      <div className="w-full flex flex-col gap-y-6">
+      <div className="w-full flex flex-col gap-y-6 items-center">
         {rowImages.map((images, rowIndex) => (
           <div
             key={rowIndex}
             ref={(el) => (rowRefs.current[rowIndex] = el)}
-            className="flex overflow-x-auto space-x-4 w-full snap-x hide-scrollbar"
+            className="flex overflow-x-auto space-x-4 w-full snap-x hide-scrollbar lg:justify-center"
             style={{ scrollBehavior: "smooth" }}
           >
             {images.map((src, i) => (
