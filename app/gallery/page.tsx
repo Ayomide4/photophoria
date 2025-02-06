@@ -4,28 +4,30 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const rowImages = [
-  ["/assets/img1.png", "/assets/img2.png", "/assets/img6.jpeg"],
-  ["/assets/img4.png", "/assets/img5.png", "/assets/img3.png"],
-  ["/assets/pp-group-1.jpg", "/assets/img2.png", "/assets/img4.png"],
+  [
+    "/assets/img1.png",
+    "/assets/img2.png",
+    "/assets/img3.png",
+    "/assets/img4.png",
+  ],
+  [
+    "/assets/img5.png",
+    "/assets/img6.jpeg",
+    "/assets/pp-group-1.jpg",
+    "/assets/img7.jpeg",
+  ],
 ];
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const rowRefs = useRef<Array<HTMLDivElement | null>>([]);
 
-  // Duplicate images to ensure scrollable content
-  const duplicatedRows = rowImages.map((images) => [
-    ...images,
-    ...images,
-    ...images,
-  ]);
-
   useEffect(() => {
     rowRefs.current.forEach((container, index) => {
       if (!container) return;
 
       let isUserInteracting = false;
-      const duration = 10000; // Same speed for all rows
+      const duration = 10000; // Smooth scrolling speed
       const startScroll =
         index % 2 === 0 ? 0 : container.scrollWidth - container.clientWidth;
       const endScroll =
@@ -74,7 +76,7 @@ export default function Gallery() {
       </p>
 
       <div className="w-full flex flex-col gap-y-6">
-        {duplicatedRows.map((images, rowIndex) => (
+        {rowImages.map((images, rowIndex) => (
           <div
             key={rowIndex}
             ref={(el) => (rowRefs.current[rowIndex] = el)}
@@ -84,13 +86,13 @@ export default function Gallery() {
             {images.map((src, i) => (
               <div
                 key={i}
-                className="w-72 h-72 flex-shrink-0 relative snap-center "
+                className="w-72 h-72 flex-shrink-0 relative snap-center"
               >
                 <Image
                   src={src}
                   alt={`Gallery image ${i + 1}`}
                   fill
-                  className="cursor-pointer rounded-lg object-cover "
+                  className="cursor-pointer rounded-lg object-cover"
                   onClick={() => setSelectedImage(src)}
                 />
               </div>
@@ -99,7 +101,7 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* Modal remains the same */}
+      {/* Modal for full-size image */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
