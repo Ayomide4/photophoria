@@ -15,7 +15,7 @@ const renderCards = packages.map((item, index: number) => {
   return (
     <div
       key={item.title}
-      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-8 py-6 justify-between min-h-[400px]" // Set consistent height
+      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-8 py-6 justify-between min-h-[400px] items-center" // Set consistent height
     >
       {/* Title with Fixed Height */}
       <div className="h-[60px] flex items-center">
@@ -85,14 +85,11 @@ export default function Home() {
   }, []);
 
   //TODO:
-  // - add loading animation for all images for example opening twitter for the first time
-  // - add mute/unmute button for video
-  // - animations
-  // - make consts file
+  // - add loading Skeleton animation for all images for example opening twitter for the first time
 
   return (
     <div className=" w-full h-full flex  flex-col items-center gap-y-6 z-0">
-      <div className="w-full h-[31.25rem]  rounded-xl flex flex-col-reverse relative md:h-[80vh] md:rounded-3xl ">
+      <div className="w-full h-[31.25rem]  rounded-xl flex flex-col-reverse relative md:h-[80vh] md:rounded-3xl shadow-lg lg:h-[90vh]">
         {isLoading && (
           <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
         )}
@@ -121,23 +118,23 @@ export default function Home() {
         </div>
       </div>
       {/* about */}
-      <div className="w-full  flex flex-col items-center md:flex-row-reverse md:h-[65vh]">
-        <div className="w-full h-96 relative rounded-full md:h-full">
+      <div className="w-full  flex flex-col items-center md:flex-row-reverse md:h-[65vh] shadow-lg rounded-xl">
+        <div className="w-full h-96 relative rounded-full md:h-full ">
           <Video
             videoSrc="/assets/photophoria1.mp4"
             className="rounded-b-none rounded-t-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl md:h-full"
           />
         </div>
-        <div className="w-full  relative rounded-t-none rounded-b-xl bg-primary p-4  md:rounded-none md:h-full md:rounded-tl-xl md:rounded-bl-xl md:p-6">
-          <h2 className="font-bold text-3xl/8 font-museo-moderno mb-4 ">
+        <div className="w-full  relative rounded-t-none rounded-b-xl bg-primary p-4  md:rounded-none md:h-full md:rounded-tl-xl md:rounded-bl-xl md:p-6 lg:p-10">
+          <h2 className="font-bold text-3xl/8 font-museo-moderno mb-4 lg:text-5xl lg:mb-6">
             Turning Moments Into Magic
           </h2>
-          <p className="mb-2 text-lg ">
+          <p className="mb-2 text-lg lg:text-2xl lg:mb-6">
             At PhotoPhoria, we specialize in photobooth rentals that bring
             connection, joy, and unforgettable memories to every event—weddings,
             birthdays, corporate gatherings, and more.{" "}
           </p>
-          <p className="text-lg mb-2">
+          <p className="text-lg mb-2 lg:text-2xl">
             Our stylish photobooths capture the laughter, love, and moments that
             make your celebration unique.
           </p>
@@ -159,19 +156,18 @@ export default function Home() {
           Our Packages
         </h2>
 
-        {/* FIXME: TURN THIS INTO IT SEPERATE DIV */}
         <div
-          className="flex overflow-x-auto gap-4  no-scrollbar w-full px-4 "
+          className="flex overflow-x-auto lg:overflow-visible gap-4 no-scrollbar w-full px-4 lg:items-center lg:justify-center"
           ref={containerRef}
         >
-          {renderCards}{" "}
+          {renderCards}
         </div>
       </div>
       {/* gallery */}
       <div className="w-full  gap-y-2 flex flex-col ">
         {/* Flex container for the first two images */}
         <div className="w-full flex gap-x-2 ">
-          <div className="flex-1 relative h-52 ">
+          <div className="flex-1 relative h-52 md:h-72">
             <Image
               src="/assets/img1.png"
               alt="two women taking a photo"
@@ -179,7 +175,7 @@ export default function Home() {
               className="object-cover rounded-3xl" // Ensures the image fits without stretching
             />
           </div>
-          <div className="flex-1 relative h-52">
+          <div className="flex-1 relative h-52 md:h-72">
             <Image
               src="/assets/img2.png"
               alt="a woman taking a photo"
@@ -190,15 +186,15 @@ export default function Home() {
         </div>
 
         {/* Full-width third image */}
-        <div className="relative w-full h-52">
+        <div className="relative w-full h-52 md:h-72">
           <Image
             src="/assets/img3.png"
             alt="women throwing a party"
-            fill // Fills the parent container
+            fill // Fills the parent container                          x
             className="object-cover rounded-3xl" // Ensures the image fits without stretching
           />
         </div>
-        <div className="relative w-full h-52">
+        <div className="relative w-full h-52 md:h-72">
           <Image
             src="/assets/img4.png"
             alt="man posing for a photo"
@@ -214,8 +210,8 @@ export default function Home() {
         </Link>
       </div>{" "}
       {/* testimonials */}
-      <div className="flex flex-col items-center md:w-full ">
-        <h2 className="font-bold text-2xl font-museo-moderno mb-6 ">
+      <div className="flex flex-col items-center md:w-full lg:mb-10">
+        <h2 className="font-bold text-2xl font-museo-moderno mb-6 lg:text-4xl">
           What Our Clients Are Saying
         </h2>
 

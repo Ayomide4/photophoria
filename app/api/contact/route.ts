@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"Photophoria" <${process.env.EMAIL_USER}>`,
-      to: "aomotosho4@gmail.com", // Replace with your recipient email
+      to: "info@photophoria.co", // Replace with your recipient email
       subject: "New Contact Form Submission",
       html: `
         <h2>New Contact Form Submission</h2>

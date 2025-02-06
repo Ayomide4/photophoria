@@ -62,15 +62,17 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-3xl mx-auto p-6 md:mt-20">
       {/* Header */}
-      <header className="text-center mb-6">
-        <h1 className="text-4xl font-bold font-museo-moderno">Contact Us</h1>
-        <p className=" mt-2">
+      <header className="text-center mb-6 ">
+        <h1 className="text-4xl font-bold font-museo-moderno md:text-6xl ">
+          Contact Us
+        </h1>
+        <p className=" mt-2 md:text-lg md:mt-4">
           Thank you for considering us for your special event! We’re excited to
           help make it unforgettable.
         </p>
-        <p className="mt-2">
+        <p className="mt-2 md:text-lg">
           To book your event or ask any questions, simply fill out the form
           below, and we’ll be in touch soon!
         </p>

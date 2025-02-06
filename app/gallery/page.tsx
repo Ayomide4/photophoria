@@ -65,9 +65,11 @@ export default function Gallery() {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col items-center gap-y-6 z-0 mb-10">
-      <h1 className="font-museo-moderno text-3xl font-bold">Our Gallery</h1>
-      <p className="text-center">
+    <div className="w-full h-full flex flex-col items-center gap-y-6 z-0 mb-10 md:mt-20">
+      <h1 className="font-museo-moderno text-3xl font-bold md:text-6xl">
+        Our Gallery
+      </h1>
+      <p className="text-center md:text-xl">
         Welcome to our gallery. Here are some highlights from our clients.
       </p>
 
@@ -82,13 +84,13 @@ export default function Gallery() {
             {images.map((src, i) => (
               <div
                 key={i}
-                className="w-72 h-72 flex-shrink-0 relative snap-center"
+                className="w-72 h-72 flex-shrink-0 relative snap-center "
               >
                 <Image
                   src={src}
                   alt={`Gallery image ${i + 1}`}
                   fill
-                  className="cursor-pointer rounded-lg object-cover"
+                  className="cursor-pointer rounded-lg object-cover "
                   onClick={() => setSelectedImage(src)}
                 />
               </div>

@@ -1,6 +1,5 @@
 import { RightArrow } from "@/public/assets/svg";
 import Link from "next/link";
-import Button from "./Button";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,7 +22,6 @@ export default function Footer() {
             <Link href="/contact">CONTACT</Link>
           </div>
         </div>
-
         {/* GET IN TOUCH */}
         <div className="flex flex-col mb-8">
           <h3 className="text-xs mb-2">GET IN TOUCH</h3>
@@ -31,13 +29,17 @@ export default function Footer() {
             <a href="mailto:info@photophoria.co">INFO@PHOTOPHORIA.CO</a>
           </div>
         </div>
-
         {/* SOCIAL */}
         <div className="flex flex-col mb-8">
           <h3 className="text-xs mb-2">SOCIAL</h3>
           <div className="flex flex-col gap-2">
             <div className="flex items-center">
-              <p className="mr-2">INSTAGRAM</p>
+              <a
+                href="https://www.instagram.com/photophoria.co/"
+                className="mr-2"
+              >
+                INSTAGRAM
+              </a>
               <div className="-rotate-45 flex justify-center items-center">
                 <RightArrow width={15} height={15} />
               </div>
@@ -62,7 +64,7 @@ export default function Footer() {
       {/* Mobile Review Button */}
       <Link
         href="mailto:info@photophoria.co"
-        className="bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center mb-6 md:hidden"
+        className="bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center mb-6 md:absolute md:bottom-10 md:right-4 md:-translate-y-1/2 md:w-52"
       >
         Leave a Review
       </Link>
@@ -74,10 +76,10 @@ export default function Footer() {
           <p className="text-xs">© {currentYear} PHOTOPHORIA</p>
         </div>
       </div>
-      <div className="hidden md:block md:absolute md:bottom-10 md:right-4 md:-translate-y-1/2 md:w-52">
-        {/* Review Button (hidden on mobile) */}
-        <Button text="Leave a Review" />
-      </div>
+      {/* <div className="hidden md:block md:absolute md:bottom-10 md:right-4 md:-translate-y-1/2 md:w-52"> */}
+      {/*   {/* Review Button (hidden on mobile) */}
+      {/*   <Button text="Leave a Review" link="mailto:info@photophoria.co" /> */}
+      {/* </div> */}
     </div>
   );
 }

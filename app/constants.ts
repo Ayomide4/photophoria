@@ -17,6 +17,11 @@ export const packages: Package[] = [
       { included: true, description: "4 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       { included: true, description: "Unlimited Digital Pictures & Gifs" },
+      {
+        included: true,
+        description: "Virtual booth link",
+      },
+
       { included: false, description: "Booth Attendant" },
       {
         included: false,
@@ -80,27 +85,24 @@ export const packages: Package[] = [
 
 export const testimonialsPeople: { name: string; description: string }[] = [
   {
-    name: "Mark T.",
-    description:
-      "“The team at PhotoPhoria made everything so easy. Their photo booth was a hit at our corporate event, and the props were a blast!”",
-  },
-  {
-    name: "Emily & Jason",
+    name: "Glory & Ayo",
     description:
       "“PhotoPhoria was the highlight of our wedding! The photobooth added so much fun, and the pictures turned out amazing. Everyone loved it!”",
   },
+
   {
     name: "Sarah L.",
     description:
       "“Our guests couldn’t stop talking about the photo booth! The photos are such a fun way to relive the night—thank you, PhotoPhoria!”",
   },
   {
-    name: "Mark T.",
+    name: "Chizoba O",
     description:
-      "“The team at PhotoPhoria made everything so easy. Their photo booth was a hit at our corporate event, and the props were a blast!”",
+      "“Photophoria was a hit at my birthday game night! The sleek setup, high-quality photos, and fun props made the night unforgettable. My guests loved it, and the instant keepsakes were a perfect touch. Highly recommend for any event!”",
   },
+
   {
-    name: "Mark T.",
+    name: "Subomi B.",
     description:
       "“The team at PhotoPhoria made everything so easy. Their photo booth was a hit at our corporate event, and the props were a blast!”",
   },
@@ -109,11 +111,14 @@ export const testimonialsPeople: { name: string; description: string }[] = [
 // Full Packages and Features
 export const fullPackages: Package[] = [
   {
-    title: "Standard Package",
+    title: "Standard",
     features: [
       { included: true, description: "4 hours of access" },
       { included: true, description: "Setup & Breakdown" },
-      { included: true, description: "Unlimited Digital Pictures & Gifs" },
+      {
+        included: true,
+        description: "Unlimited Digital pictures & GIFs",
+      },
       { included: true, description: "Virtual booth link" },
       { included: true, description: "Standard back drop" },
       { included: true, description: "Instant digital sharing" },
@@ -128,13 +133,14 @@ export const fullPackages: Package[] = [
     ],
   },
   {
-    title: "Essential Package",
+    title: "Essential",
     features: [
       { included: true, description: "5 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
-        description: " Unlimited Digital pictures, videos, boomerangs & GIFs",
+
+        description: "Unlimited Digital pictures & GIFs",
       },
       {
         included: true,
@@ -169,13 +175,13 @@ export const fullPackages: Package[] = [
     ],
   },
   {
-    title: "Premium Package",
+    title: "Premium",
     features: [
       { included: true, description: "6 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
-        description: " Unlimited Digital pictures, videos, boomerangs & GIFs",
+        description: "Unlimited Digital pictures & GIFs",
       },
       {
         included: true,
@@ -215,17 +221,17 @@ export const addons = [
   {
     title: "Additional Hours",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum nunc ut est varius laoreet. Curabitur varius orci commodo purus elementum aliquam.",
+      "Keep the fun going! Extend your photo booth rental for extra hours, ensuring you capture every moment without feeling rushed. Perfect for events that run late into the night!",
   },
   {
     title: "Colored Backdrop",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum nunc ut est varius laoreet. Curabitur varius orci commodo purus elementum aliquam.",
+      "Elevate your photos with a vibrant backdrop that complements your event’s theme. Choose from a variety of colors to create the perfect aesthetic for your special occasion.",
   },
   {
     title: "Custom Flower Walls",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dictum nunc ut est varius laoreet. Curabitur varius orci commodo purus elementum aliquam.",
+      "Add a touch of elegance with a stunning floral backdrop. Our custom flower walls create a beautiful setting, perfect for weddings, bridal showers, and upscale events.",
   },
 ];
 

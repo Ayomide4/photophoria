@@ -99,7 +99,7 @@ export default function Navbar() {
             {/* Footer Section */}
             <div className="flex flex-col justify-start w-fit">
               <Link
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/photophoria.co/"
                 className="flex items-center"
               >
                 <p className="mr-2">INSTAGRAM</p>

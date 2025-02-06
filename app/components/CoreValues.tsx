@@ -36,7 +36,7 @@ const CoreValues = () => {
         return (
           <div
             key={index}
-            className="relative flex flex-col bg-inherit w-full rounded-xl p-6 pb-10 border border-black/40 cursor-pointer transition-all duration-300"
+            className="relative flex flex-col bg-inherit w-full rounded-xl p-6 pb-10 border border-black/40 cursor-pointer transition-all duration-300 "
             onClick={() => toggleCoreValues(index)}
           >
             <h2 className=" text-3xl mb-4">{item.title}</h2>
