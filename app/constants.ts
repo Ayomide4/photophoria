@@ -267,3 +267,20 @@ export const technologyFeatures = [
       "Guests can instantly share their photos, videos, boomerangs via email, text, airdrop, or social media directly from the booth. Perfect for spreading the fun in real time!",
   },
 ];
+
+export const scrollToMiddle = (container: HTMLElement) => {
+  if (container.children.length >= 2) {
+    const middleIndex = Math.floor(container.children.length / 2);
+    const middleElement = container.children[middleIndex] as HTMLElement;
+
+    const scrollPosition =
+      middleElement.offsetLeft -
+      container.offsetWidth / 2 +
+      middleElement.offsetWidth / 2;
+
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: "auto", // or 'smooth' for animation
+    });
+  }
+};

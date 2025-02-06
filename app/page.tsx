@@ -10,6 +10,7 @@ import FAQ from "./components/FAQ";
 import { packages, testimonialsPeople } from "./constants";
 import FeatureList from "./components/FeatureList";
 import Button from "./components/Button";
+import { scrollToMiddle } from "./constants";
 
 const renderCards = packages.map((item, index: number) => {
   return (
@@ -56,24 +57,6 @@ export default function Home() {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const [isLoading, setLoading] = useState(true);
 
-  // Reusable scroll-to-middle function
-  const scrollToMiddle = (container: HTMLElement) => {
-    if (container.children.length >= 2) {
-      const middleIndex = Math.floor(container.children.length / 2);
-      const middleElement = container.children[middleIndex] as HTMLElement;
-
-      const scrollPosition =
-        middleElement.offsetLeft -
-        container.offsetWidth / 2 +
-        middleElement.offsetWidth / 2;
-
-      container.scrollTo({
-        left: scrollPosition,
-        behavior: "auto", // or 'smooth' for animation
-      });
-    }
-  };
-
   useEffect(() => {
     if (containerRef.current) {
       scrollToMiddle(containerRef.current);
@@ -102,10 +85,10 @@ export default function Home() {
         />
         <div className="flex flex-col items-center  mx-2 z-20 md:items-start">
           <div className="mb-4 text-white px-4 md:mb-8">
-            <p className=" font-red-hat-display text-nowrap md:text-lg lg:text-2xl">
+            <p className=" font-red-hat-display  md:text-lg lg:text-2xl">
               Introducing PhotoPhoria ‘s Photo Booth Rental
             </p>
-            <h1 className="font-museo-moderno text-3xl/8 font-bold md:text-4xl md:w-4/5 lg:w-fit lg:text-6xl">
+            <h1 className="font-museo-moderno  text-2xl/8 font-bold md:text-4xl md:w-4/5 lg:w-fit lg:text-6xl">
               Your Moment, Perfectly Captured{" "}
             </h1>
           </div>
