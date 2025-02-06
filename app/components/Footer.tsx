@@ -76,11 +76,7 @@ export default function Footer() {
                 INSTAGRAM
               </a>
               <div className="-rotate-45 flex justify-center items-center">
-                <RightArrow
-                  width={15}
-                  height={15}
-                  className="lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7"
-                />
+                <RightArrow width={15} height={15} />
               </div>
             </div>
 
@@ -89,11 +85,7 @@ export default function Footer() {
                 FACEBOOK
               </p>
               <div className="-rotate-45 flex justify-center items-center">
-                <RightArrow
-                  width={15}
-                  height={15}
-                  className="lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7"
-                />
+                <RightArrow width={15} height={15} />
               </div>
             </div>
           </div>

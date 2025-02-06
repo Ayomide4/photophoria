@@ -117,12 +117,12 @@ export default function Home() {
           <h2 className="font-bold text-3xl/8 font-museo-moderno mb-4 lg:text-5xl lg:mb-6 xl:text-6xl xl:mb-8 2xl:text-7xl 2xl:mb-10">
             Turning Moments Into Magic
           </h2>
-          <p className="mb-2 text-lg lg:text-2xl lg:mb-6 xl:text-3xl xl:mb-8 2xl:text-4xl 2xl:mb-10">
+          <p className="mb-2 text-lg lg:text-2xl lg:mb-6  xl:mb-8 2xl:text-4xl 2xl:mb-10">
             At PhotoPhoria, we specialize in photobooth rentals that bring
             connection, joy, and unforgettable memories to every event—weddings,
             birthdays, corporate gatherings, and more.
           </p>
-          <p className="text-lg mb-2 lg:text-2xl xl:text-3xl 2xl:text-4xl">
+          <p className="text-lg mb-2 lg:text-2xl  2xl:text-4xl">
             Our stylish photobooths capture the laughter, love, and moments that
             make your celebration unique.
           </p>

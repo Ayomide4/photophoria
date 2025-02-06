@@ -23,7 +23,7 @@ export default function Button({
       </div>
       {/* Text */}
       <p
-        className={`${invert ? "text-primary" : "text-black"}  mr-4 font-semibold lg:text-2xl md:mr-6 xl:text-3xl`}
+        className={`${invert ? "text-primary" : "text-black"}  mr-4 font-semibold lg:text-xl md:mr-6 `}
       >
         {text}
       </p>

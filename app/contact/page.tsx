@@ -2,8 +2,17 @@
 
 import { useState } from "react";
 
+type ValidationErrors = {
+  fullName?: string;
+  email?: string;
+  phone?: string;
+  package?: string;
+  eventDate?: string;
+  addons?: string;
+  eventDetails?: string;
+};
+
 export default function ContactPage() {
-  //TODO: form vaildation
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -14,19 +23,84 @@ export default function ContactPage() {
     eventDetails: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [, setLoading] = useState(false);
+  const [, setMessage] = useState("");
+
+  const validateForm = (): boolean => {
+    const newErrors: ValidationErrors = {};
+
+    // Full Name validation
+    if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = "Name must be at least 2 characters long";
+    }
+    if (!/^[a-zA-Z\s]*$/.test(formData.fullName)) {
+      newErrors.fullName = "Name should only contain letters and spaces";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    // Phone validation
+    const phoneRegex = /^\+?[\d\s-]{10,}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Please enter a valid phone number (minimum 10 digits)";
+    }
+
+    // Package validation
+    if (!formData.package) {
+      newErrors.package = "Please select a package";
+    }
+
+    // Event Date validation
+    if (!formData.eventDate) {
+      newErrors.eventDate = "Please select an event date";
+    } else {
+      const selectedDate = new Date(formData.eventDate);
+      const today = new Date();
+      if (selectedDate < today) {
+        newErrors.eventDate = "Event date cannot be in the past";
+      }
+    }
+
+    // Add-ons validation
+    if (!formData.addons) {
+      newErrors.addons = "Please select an add-on option";
+    }
+
+    // Event Details validation
+    if (formData.eventDetails.trim().length < 10) {
+      newErrors.eventDetails =
+        "Please provide more details about your event (minimum 10 characters)";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >,
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    // Clear error when user starts typing
+    if (errors[name as keyof ValidationErrors]) {
+      setErrors({ ...errors, [name]: undefined });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setLoading(true);
     setMessage("");
 
@@ -61,20 +135,26 @@ export default function ContactPage() {
     setLoading(false);
   };
 
+  const renderError = (fieldName: keyof ValidationErrors) => {
+    return errors[fieldName] ? (
+      <p className="text-red-500 text-sm mt-1">{errors[fieldName]}</p>
+    ) : null;
+  };
+
   return (
     <div className="max-w-3xl mx-auto p-6 md:mt-20">
       {/* Header */}
-      <header className="text-center mb-6 ">
-        <h1 className="text-4xl font-bold font-museo-moderno md:text-6xl ">
+      <header className="text-center mb-6">
+        <h1 className="text-4xl font-bold font-museo-moderno md:text-6xl">
           Contact Us
         </h1>
-        <p className=" mt-2 md:text-lg md:mt-4">
-          Thank you for considering us for your special event! We’re excited to
-          help make it unforgettable.
+        <p className="mt-2 md:text-lg md:mt-4">
+          Thank you for considering us for your special event! We&apos;re
+          excited to help make it unforgettable.
         </p>
         <p className="mt-2 md:text-lg">
           To book your event or ask any questions, simply fill out the form
-          below, and we’ll be in touch soon!
+          below, and we&apos;ll be in touch soon!
         </p>
       </header>
 
@@ -82,6 +162,7 @@ export default function ContactPage() {
       <form
         onSubmit={handleSubmit}
         className="space-y-4 bg-white p-6 rounded-lg shadow-lg"
+        noValidate
       >
         {/* Full Name */}
         <div>
@@ -92,8 +173,11 @@ export default function ContactPage() {
             value={formData.fullName}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.fullName ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {renderError("fullName")}
         </div>
 
         {/* Email */}
@@ -105,8 +189,11 @@ export default function ContactPage() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.email ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {renderError("email")}
         </div>
 
         {/* Phone Number */}
@@ -118,8 +205,11 @@ export default function ContactPage() {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.phone ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {renderError("phone")}
         </div>
 
         {/* Package Selection */}
@@ -130,13 +220,16 @@ export default function ContactPage() {
             value={formData.package}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.package ? "border-red-500" : "border-gray-300"
+            }`}
           >
             <option value="">Choose a Package</option>
             <option value="standard">Standard Package</option>
             <option value="essential">Essential Package</option>
             <option value="premium">Premium Package</option>
           </select>
+          {renderError("package")}
         </div>
 
         {/* Event Date Picker */}
@@ -148,8 +241,11 @@ export default function ContactPage() {
             value={formData.eventDate}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.eventDate ? "border-red-500" : "border-gray-300"
+            }`}
           />
+          {renderError("eventDate")}
         </div>
 
         {/* Add-ons Selection */}
@@ -160,13 +256,17 @@ export default function ContactPage() {
             value={formData.addons}
             onChange={handleChange}
             required
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.addons ? "border-red-500" : "border-gray-300"
+            }`}
           >
             <option value="">Choose Add-ons</option>
+            <option value="">None</option>
             <option value="additional-hours">Additional Hours</option>
             <option value="colored-backdrop">Colored Backdrop</option>
             <option value="custom-flower-walls">Custom Flower Walls</option>
           </select>
+          {renderError("addons")}
         </div>
 
         {/* Event Details */}
@@ -177,15 +277,17 @@ export default function ContactPage() {
             value={formData.eventDetails}
             onChange={handleChange}
             rows={4}
-            className="w-full p-2 border border-gray-300 rounded-lg"
+            className={`w-full p-2 border rounded-lg ${
+              errors.eventDetails ? "border-red-500" : "border-gray-300"
+            }`}
           ></textarea>
+          {renderError("eventDetails")}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-primary text-black font-bold py-2 rounded-lg  "
-          onClick={handleSubmit}
+          className="w-full bg-primary text-black font-bold py-2 rounded-lg"
         >
           Submit
         </button>

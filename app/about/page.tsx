@@ -31,20 +31,20 @@ export default function About() {
             <h1 className="text-xl md:text-2xl">About Us</h1>
           </div>
           <div className="lg:p-10 xl:p-12 2xl:p-16">
-            <h2 className="font-bold text-2xl/8 mb-4 md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-8xl xl:mb-8">
+            <h2 className="font-bold text-2xl/8 mb-4 md:text-3xl lg:text-4xl  2xl:text-8xl xl:mb-8">
               Photo Booth Rentals for Unforgettable Moments
             </h2>
-            <p className="text-lg mb-2 md:mb-6 lg:text-xl xl:text-3xl 2xl:text-3xl lg:mb-6 xl:mb-8">
+            <p className="text-lg mb-2 md:mb-6 lg:text-xl xl:text-2xl 2xl:text-3xl lg:mb-6 xl:mb-8">
               At PhotoPhoria, we specialize in photobooth rentals that bring joy
               and unforgettable memories to any event—weddings, birthdays,
               corporate gatherings, and more.
             </p>
-            <p className="text-lg mb-2 hidden md:block md:mb-10 lg:text-xl xl:text-3xl 2xl:text-3xl xl:mb-12">
+            <p className="text-lg mb-2 hidden md:block md:mb-10 lg:text-xl xl:text-2xl 2xl:text-3xl xl:mb-12">
               Our stylish booths capture the laughter and love that make your
-              celebration unique. With PhotoPhoria, you're not just renting a
-              photo booth—you're creating lasting experiences
-            </p>
-            <div className="hidden md:block w-44 lg:w-52 xl:w-60">
+              celebration unique. With PhotoPhoria, you&apos;re not just renting
+              a photo booth—you&apos;re creating lasting experiences
+            </p>{" "}
+            <div className="hidden md:block w-44 lg:w-52 ">
               <Button text="Book Now" invert={true} link="contact" />
             </div>
           </div>

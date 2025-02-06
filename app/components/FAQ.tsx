@@ -29,7 +29,7 @@ const FAQ = () => {
   return (
     <div className="flex flex-col mb-10 bg-primary w-full rounded-b-lg p-6 pb-10 md:h-full md:mb-0 md:rounded-none md:rounded-r-xl xl:p-8 2xl:p-10">
       {/* FAQ Heading */}
-      <h2 className="font-bold text-3xl font-museo-moderno mb-4 lg:text-5xl lg:mb-8 xl:text-6xl xl:mb-10 2xl:text-7xl 2xl:mb-12">
+      <h2 className="font-bold text-3xl font-museo-moderno mb-4 lg:text-5xl lg:mb-8  xl:mb-10 2xl:text-7xl 2xl:mb-12">
         Frequently Asked Questions
       </h2>
 
@@ -41,9 +41,7 @@ const FAQ = () => {
             className="cursor-pointer flex justify-between items-center font-semibold transition-all duration-300"
             onClick={() => toggleFAQ(index)}
           >
-            <p className="text-lg lg:text-2xl xl:text-3xl 2xl:text-4xl">
-              {faq.question}
-            </p>
+            <p className="text-lg lg:text-2xl  2xl:text-4xl">{faq.question}</p>
             <motion.div
               animate={{ rotate: openIndex === index ? 45 : 0 }}
               transition={{ duration: 0.3 }}
@@ -63,7 +61,7 @@ const FAQ = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <p className="mt-2 text-lg text-black lg:text-xl xl:text-2xl 2xl:text-3xl">
+                <p className="mt-2 text-lg text-black lg:text-xl  2xl:text-3xl">
                   {faq.answer}
                 </p>
               </motion.div>

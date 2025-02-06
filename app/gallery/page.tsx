@@ -20,7 +20,7 @@ const rowImages = [
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const rowRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     rowRefs.current.forEach((container, index) => {
@@ -45,12 +45,10 @@ export default function Gallery() {
 
       const animate = () => {
         if (isUserInteracting) return;
-
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / duration, 1);
         container.scrollLeft =
           startScroll + (endScroll - startScroll) * progress;
-
         if (progress < 1) {
           requestAnimationFrame(animate);
         }
@@ -66,6 +64,10 @@ export default function Gallery() {
     });
   }, []);
 
+  const setRowRef = (index: number) => (el: HTMLDivElement | null) => {
+    rowRefs.current[index] = el;
+  };
+
   return (
     <div className="w-full h-full flex flex-col items-center gap-y-6 z-0 mb-10 md:mt-20">
       <h1 className="font-museo-moderno text-3xl font-bold md:text-6xl">
@@ -74,12 +76,11 @@ export default function Gallery() {
       <p className="text-center md:text-xl">
         Welcome to our gallery. Here are some highlights from our clients.
       </p>
-
       <div className="w-full flex flex-col gap-y-6 items-center">
         {rowImages.map((images, rowIndex) => (
           <div
             key={rowIndex}
-            ref={(el) => (rowRefs.current[rowIndex] = el)}
+            ref={setRowRef(rowIndex)}
             className="flex overflow-x-auto space-x-4 w-full snap-x hide-scrollbar lg:justify-center"
             style={{ scrollBehavior: "smooth" }}
           >
