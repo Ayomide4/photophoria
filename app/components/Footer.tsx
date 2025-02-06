@@ -109,7 +109,7 @@ export default function Footer() {
       {/* Mobile Review Button */}
       <Link
         href="mailto:info@photophoria.co"
-        className="bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center mb-6 md:absolute md:bottom-10 md:right-4 md:-translate-y-1/2 md:w-52 lg:text-2xl xl:text-3xl 2xl:text-4xl"
+        className="bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center mb-6 md:absolute md:bottom-10 md:right-4 md:-translate-y-1/2 md:w-52 lg:text-2xl    2xl:text-4xl"
       >
         Leave a Review
       </Link>

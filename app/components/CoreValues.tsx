@@ -39,13 +39,13 @@ const CoreValues = () => {
             className="relative flex flex-col bg-inherit w-full rounded-xl p-6 pb-10 border border-black/40 cursor-pointer transition-all duration-300 "
             onClick={() => toggleCoreValues(index)}
           >
-            <h2 className=" text-3xl mb-4">{item.title}</h2>
+            <h2 className=" text-3xl mb-4 xl:text-4xl">{item.title}</h2>
             <div
               className={`overflow-hidden transition-max-h duration-300 ${
                 isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <p className="text-gray-600 w-[90%] md:text-xl">
+              <p className="text-gray-600 w-[90%] md:text-xl xl:text-3xl">
                 {item.description}
               </p>
             </div>

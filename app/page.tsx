@@ -16,7 +16,7 @@ const renderCards = packages.map((item, index: number) => {
   return (
     <div
       key={item.title}
-      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-8 py-6 justify-between min-h-[400px] items-center  2xl:w-[400px]"
+      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-8 py-6 justify-between min-h-[400px] items-center 2xl:w-[400px]"
     >
       {/* Title with Fixed Height */}
       <div className="h-[60px] flex items-center">
@@ -55,7 +55,13 @@ const renderTestimonials = testimonialsPeople.map((item, index) => (
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
-  const [isLoading, setLoading] = useState(true);
+
+  // Individual loading states for each resource
+  const [isHeroImageLoading, setHeroImageLoading] = useState(true);
+  const [isGalleryImage1Loading, setGalleryImage1Loading] = useState(true);
+  const [isGalleryImage2Loading, setGalleryImage2Loading] = useState(true);
+  const [isGalleryImage3Loading, setGalleryImage3Loading] = useState(true);
+  const [isGalleryImage4Loading, setGalleryImage4Loading] = useState(true);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -64,21 +70,21 @@ export default function Home() {
     if (testimonialsRef.current) {
       scrollToMiddle(testimonialsRef.current);
     }
-    setLoading(false); // Set loading to false after scrolling
   }, []);
 
   return (
     <div className="w-full h-full flex flex-col items-center gap-y-6 z-0">
       {/* Hero Section */}
-      <div className="w-full h-[31.25rem] rounded-xl flex flex-col-reverse relative md:h-[80vh] md:rounded-3xl shadow-lg ">
-        {isLoading && (
+      <div className="w-full h-[31.25rem] rounded-xl flex flex-col-reverse relative md:h-[80vh] md:rounded-3xl shadow-lg">
+        {isHeroImageLoading && (
           <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
         )}
         <Image
           src="/assets/pp-group-1.jpg"
           alt="group photo of people using the photo booth"
           className="rounded-xl object-cover w-full h-full absolute z-10 md:rounded-3xl"
-          onLoad={() => setLoading(false)}
+          onLoad={() => setHeroImageLoading(false)}
+          priority
           fill
         />
         <div className="flex flex-col items-center mx-2 z-20 md:items-start">
@@ -86,7 +92,7 @@ export default function Home() {
             <p className="font-red-hat-display md:text-lg lg:text-2xl xl:text-3xl 2xl:text-4xl">
               Introducing PhotoPhoria’s Photo Booth Rental
             </p>
-            <h1 className="font-museo-moderno text-2xl/8 font-bold md:text-4xl md:w-4/5 lg:w-fit lg:text-6xl  2xl:text-8xl">
+            <h1 className="font-museo-moderno text-2xl/8 font-bold md:text-4xl md:w-4/5 lg:w-fit lg:text-6xl 2xl:text-8xl">
               Your Moment, Perfectly Captured
             </h1>
           </div>
@@ -151,37 +157,53 @@ export default function Home() {
       <div className="w-full gap-y-2 flex flex-col">
         <div className="w-full flex gap-x-2">
           <div className="flex-1 relative h-52 md:h-72 xl:h-96 2xl:h-[28rem]">
+            {isGalleryImage1Loading && (
+              <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
+            )}
             <Image
               src="/assets/img1.png"
               alt="two women taking a photo"
               fill
               className="object-cover rounded-3xl"
+              onLoad={() => setGalleryImage1Loading(false)}
             />
           </div>
           <div className="flex-1 relative h-52 md:h-72 xl:h-96 2xl:h-[28rem]">
+            {isGalleryImage2Loading && (
+              <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
+            )}
             <Image
               src="/assets/img2.png"
               alt="a woman taking a photo"
               fill
               className="object-cover rounded-3xl"
+              onLoad={() => setGalleryImage2Loading(false)}
             />
           </div>
         </div>
 
         <div className="relative w-full h-52 md:h-72 xl:h-96 2xl:h-[28rem]">
+          {isGalleryImage3Loading && (
+            <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
+          )}
           <Image
             src="/assets/img3.png"
             alt="women throwing a party"
             fill
             className="object-cover rounded-3xl"
+            onLoad={() => setGalleryImage3Loading(false)}
           />
         </div>
         <div className="relative w-full h-52 md:h-72 xl:h-96 2xl:h-[28rem]">
+          {isGalleryImage4Loading && (
+            <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
+          )}
           <Image
             src="/assets/img4.png"
             alt="man posing for a photo"
             fill
             className="object-cover rounded-3xl"
+            onLoad={() => setGalleryImage4Loading(false)}
           />
         </div>
         <Link

@@ -44,7 +44,7 @@ export default function Package() {
       className="bg-dark flex-shrink-0 w-[320px] h-80 rounded-3xl text-primary flex flex-col items-center p-6"
       key={item.title}
     >
-      <h3 className="text-3xl font-bold text-left">{item.title}</h3>
+      <h3 className="text-3xl font-bold text-left w-full">{item.title}</h3>
       <p className="mt-4 text-lg">{item.description}</p>
     </div>
   ));
@@ -55,7 +55,7 @@ export default function Package() {
       flex-shrink-0 w-[320px] h-80 rounded-3xl text-black flex flex-col items-center p-6`}
       key={item.title}
     >
-      <h3 className="text-3xl font-bold text-left">{item.title}</h3>
+      <h3 className="text-3xl font-bold text-left w-full">{item.title}</h3>
       <p className="mt-4 text-lg">{item.description}</p>
     </div>
   ));
