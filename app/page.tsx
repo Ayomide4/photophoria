@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Skeleton from "./components/Skeleton";
 import { useEffect, useRef, useState } from "react";
 import Video from "./components/Video";
 import { RightArrow } from "@/public/assets/svg";
@@ -11,6 +10,7 @@ import { packages, testimonialsPeople } from "./constants";
 import FeatureList from "./components/FeatureList";
 import Button from "./components/Button";
 import { scrollToMiddle } from "./constants";
+import Skeleton from "./components/Skeleton";
 
 const renderCards = packages.map((item, index: number) => {
   return (
