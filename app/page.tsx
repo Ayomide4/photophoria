@@ -10,7 +10,7 @@ import { packages, testimonialsPeople } from "./constants";
 import FeatureList from "./components/FeatureList";
 import Button from "./components/Button";
 import { scrollToMiddle } from "./constants";
-import Skeleton from "./components/Skeleton";
+import Skeleton from "./components/skeleton";
 
 const renderCards = packages.map((item, index: number) => {
   return (
