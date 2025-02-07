@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Skeleton from "../components/skeleton";
 
 const rowImages = [
   [
@@ -20,6 +21,7 @@ const rowImages = [
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [loadingImages, setLoadingImages] = useState<Set<string>>(new Set()); // Track loading images
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -68,6 +70,19 @@ export default function Gallery() {
     rowRefs.current[index] = el;
   };
 
+  // Track when an image starts and finishes loading
+  const handleImageLoad = (src: string) => {
+    setLoadingImages((prev) => {
+      const newSet = new Set(prev);
+      newSet.delete(src);
+      return new Set(newSet);
+    });
+  };
+
+  const handleImageLoading = (src: string) => {
+    setLoadingImages((prev) => new Set(prev).add(src));
+  };
+
   return (
     <div className="w-full h-full flex flex-col items-center gap-y-6 z-0 mb-10 md:mt-20">
       <h1 className="font-museo-moderno text-3xl font-bold md:text-6xl">
@@ -89,12 +104,23 @@ export default function Gallery() {
                 key={i}
                 className="w-72 h-72 flex-shrink-0 relative snap-center"
               >
+                {/* Show Skeleton while loading */}
+                {loadingImages.has(src) && (
+                  <Skeleton className="absolute top-0 left-0 w-full h-full rounded-lg z-10" />
+                )}
+
                 <Image
                   src={src}
                   alt={`Gallery image ${i + 1}`}
                   fill
-                  className="cursor-pointer rounded-lg object-cover"
+                  className={`cursor-pointer rounded-lg object-cover transition-opacity duration-500 ${
+                    loadingImages.has(src) ? "opacity-0" : "opacity-100"
+                  }`}
                   onClick={() => setSelectedImage(src)}
+                  onLoad={() => handleImageLoad(src)}
+                  onLoadingComplete={() => handleImageLoad(src)}
+                  onError={() => handleImageLoad(src)} // In case of error, remove skeleton
+                  onLoadStart={() => handleImageLoading(src)} // Track when image starts loading
                 />
               </div>
             ))}
