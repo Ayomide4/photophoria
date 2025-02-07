@@ -14,7 +14,7 @@ export const packages: Package[] = [
   {
     title: "Standard",
     features: [
-      { included: true, description: "4 hours of access" },
+      { included: true, description: "3 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       { included: true, description: "Unlimited Digital Pictures & Gifs" },
       {
@@ -33,7 +33,7 @@ export const packages: Package[] = [
   {
     title: "Essential",
     features: [
-      { included: true, description: "5 hours of access" },
+      { included: true, description: "4 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
@@ -57,7 +57,7 @@ export const packages: Package[] = [
   {
     title: "Premium",
     features: [
-      { included: true, description: "6 hours of access" },
+      { included: true, description: "5 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
@@ -113,7 +113,7 @@ export const fullPackages: Package[] = [
   {
     title: "Standard",
     features: [
-      { included: true, description: "4 hours of access" },
+      { included: true, description: "3 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
@@ -135,7 +135,7 @@ export const fullPackages: Package[] = [
   {
     title: "Essential",
     features: [
-      { included: true, description: "5 hours of access" },
+      { included: true, description: "4 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
@@ -177,7 +177,7 @@ export const fullPackages: Package[] = [
   {
     title: "Premium",
     features: [
-      { included: true, description: "6 hours of access" },
+      { included: true, description: "5 hours of access" },
       { included: true, description: "Setup & Breakdown" },
       {
         included: true,
