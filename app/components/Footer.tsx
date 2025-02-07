@@ -1,4 +1,4 @@
-import { RightArrow } from "@/public/assets/svg";
+import { RightArrow } from "@/public/svg";
 import Link from "next/link";
 
 export default function Footer() {

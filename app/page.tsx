@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Video from "./components/Video";
-import { RightArrow } from "@/public/assets/svg";
+import { RightArrow } from "@/public/svg";
 import Link from "next/link";
 import TestimonialCard from "./components/TestimonialCard";
 import FAQ from "./components/FAQ";
@@ -80,12 +80,13 @@ export default function Home() {
           <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
         )}
         <Image
-          src="/assets/pp-group-1.jpg"
+          src="/pp-group-1.jpg"
           alt="group photo of people using the photo booth"
           className="rounded-xl object-cover w-full h-full absolute z-10 md:rounded-3xl"
           onLoad={() => setHeroImageLoading(false)}
           priority
           fill
+          quality={100}
         />
         <div className="flex flex-col items-center mx-2 z-20 md:items-start">
           <div className="mb-4 text-white px-4 md:mb-8 xl:mb-12 2xl:mb-16">
@@ -109,7 +110,7 @@ export default function Home() {
       <div className="w-full flex flex-col items-center md:flex-row-reverse md:h-[65vh] shadow-lg rounded-xl xl:h-[70vh] 2xl:h-[75vh]">
         <div className="w-full h-96 relative rounded-full md:h-full">
           <Video
-            videoSrc="/assets/photophoria1.mp4"
+            videoSrc="/photophoria1.mp4"
             className="rounded-b-none rounded-t-xl md:rounded-tl-none md:rounded-bl-none md:rounded-tr-xl md:rounded-br-xl md:h-full"
           />
         </div>
@@ -161,7 +162,7 @@ export default function Home() {
               <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
             )}
             <Image
-              src="/assets/img1.png"
+              src="/img1.png"
               alt="two women taking a photo"
               fill
               className="object-cover rounded-3xl"
@@ -173,7 +174,7 @@ export default function Home() {
               <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
             )}
             <Image
-              src="/assets/img2.png"
+              src="/img2.png"
               alt="a woman taking a photo"
               fill
               className="object-cover rounded-3xl"
@@ -187,7 +188,7 @@ export default function Home() {
             <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
           )}
           <Image
-            src="/assets/img3.png"
+            src="/img3.png"
             alt="women throwing a party"
             fill
             className="object-cover rounded-3xl"
@@ -199,7 +200,7 @@ export default function Home() {
             <Skeleton className="w-full h-full absolute z-10 rounded-xl md:rounded-3xl" />
           )}
           <Image
-            src="/assets/img4.png"
+            src="/img4.png"
             alt="man posing for a photo"
             fill
             className="object-cover rounded-3xl"
@@ -232,7 +233,7 @@ export default function Home() {
       <div className="w-full flex flex-col items-center md:flex-row md:h-[65vh] md:mb-8 xl:h-[70vh] 2xl:h-[75vh]">
         <div className="w-full h-96 relative rounded-full md:h-full">
           <Video
-            videoSrc="/assets/photophoria2.mp4"
+            videoSrc="/photophoria2.mp4"
             className="rounded-b-none rounded-t-xl md:rounded-tr-none md:rounded-br-none md:rounded-tl-xl md:rounded-bl-xl md:h-full"
           />
         </div>

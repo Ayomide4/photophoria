@@ -6,16 +6,16 @@ import Skeleton from "../components/skeleton";
 
 const rowImages = [
   [
-    "/assets/img1.png",
-    "/assets/img2.png",
-    "/assets/img3.png",
-    "/assets/img4.png",
+    "/img1.png",
+    "/img2.png",
+    "/img3.png",
+    "/img4.png",
   ],
   [
-    "/assets/img5.png",
-    "/assets/img6.jpeg",
-    "/assets/pp-group-1.jpg",
-    "/assets/img7.jpeg",
+    "/img5.png",
+    "/img6.jpeg",
+    "/pp-group-1.jpg",
+    "/img7.jpeg",
   ],
 ];
 

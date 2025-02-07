@@ -12,7 +12,7 @@ export default function About() {
         {/* Video Section - 40% width on md+ */}
         <div className="w-full h-96 relative rounded-full md:h-full md:w-[40%]">
           <Video
-            videoSrc="/assets/photophoria3.mp4"
+            videoSrc="/photophoria3.mp4"
             className="rounded-[30px] md:rounded-3xl md:w-full"
           />
         </div>
@@ -21,7 +21,7 @@ export default function About() {
           <div className="flex w-fit items-center justify-between mb-2 md:hidden">
             <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-10 md:h-10 bg-[#F6F3F1] rounded-xl flex items-center justify-center mr-2">
               <Image
-                src="/assets/pp-logo.svg"
+                src="/pp-logo.svg"
                 width={24}
                 height={24}
                 className="w-6 h-6"
@@ -62,7 +62,7 @@ export default function About() {
       </div>
       <div className="w-full h-96 relative rounded-full mb-20 lg:h-[700px] xl:h-[800px] 2xl:h-[900px]">
         <Video
-          videoSrc="/assets/photophoria2.3.mp4"
+          videoSrc="/photophoria2.3.mp4"
           className="rounded-[30px]"
         />
       </div>
@@ -74,7 +74,7 @@ export default function About() {
       </div>
       <div className="w-full h-96 relative rounded-full mb-10 lg:h-[700px] xl:h-[800px] 2xl:h-[900px]">
         <Video
-          videoSrc="/assets/photophoria2.1.mp4"
+          videoSrc="/photophoria2.1.mp4"
           className="rounded-[30px]"
         />
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { RightArrow } from "@/public/assets/svg";
+import { RightArrow } from "@/public/svg";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -23,7 +23,7 @@ export default function Navbar() {
         <Link href="/">
           <li className="cursor-pointer">
             <Image
-              src="/assets/logo1.png"
+              src="/logo1.png"
               alt="logo"
               width={75}
               height={33}

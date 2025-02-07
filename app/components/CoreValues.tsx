@@ -1,4 +1,4 @@
-import { RightArrow } from "@/public/assets/svg";
+import { RightArrow } from "@/public/svg";
 import { useState } from "react";
 
 const CoreValues = () => {
