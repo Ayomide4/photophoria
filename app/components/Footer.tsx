@@ -69,21 +69,26 @@ export default function Footer() {
           </h3>
           <div className="flex flex-col gap-2 lg:gap-3 xl:gap-4 2xl:gap-5">
             <div className="flex items-center">
-              <a
+              <Link
                 href="https://www.instagram.com/photophoria.co/"
                 className="mr-2 lg:text-lg xl:text-xl 2xl:text-2xl"
+                target="_blank"
               >
                 INSTAGRAM
-              </a>
+              </Link>
               <div className="-rotate-45 flex justify-center items-center">
                 <RightArrow width={15} height={15} />
               </div>
             </div>
 
             <div className="flex items-center">
-              <p className="mr-2 lg:text-lg xl:text-xl 2xl:text-2xl">
+              <Link
+                href="https://www.facebook.com/people/PhotoPhoria/61572747550940/"
+                className="mr-2 lg:text-lg xl:text-xl 2xl:text-2xl"
+                target="_blank"
+              >
                 FACEBOOK
-              </p>
+              </Link>
               <div className="-rotate-45 flex justify-center items-center">
                 <RightArrow width={15} height={15} />
               </div>
@@ -95,7 +100,12 @@ export default function Footer() {
       {/* Footer Info */}
       <div className="flex flex-col text-sm mb-8 lg:text-base xl:text-lg 2xl:text-xl">
         <p className="mb-1">Designed and Created by Lone Star Web Studio</p>
-        <p>Contact: info@lonestarwebstudio.com</p>
+        <p>
+          Contact:{" "}
+          <Link href="mailto:info@lonestarwebstudio.com">
+            info@lonestarwebstudio.com
+          </Link>
+        </p>
       </div>
 
       {/* Mobile Review Button */}

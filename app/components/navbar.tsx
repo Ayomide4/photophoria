@@ -93,6 +93,7 @@ export default function Navbar() {
               <Link
                 href="https://www.instagram.com/photophoria.co/"
                 className="flex items-center"
+                target="_blank"
               >
                 <p className="mr-2">INSTAGRAM</p>
                 <div className="-rotate-45 flex justify-center items-center">

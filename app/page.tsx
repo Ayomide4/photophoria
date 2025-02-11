@@ -12,6 +12,8 @@ import Button from "./components/Button";
 import { scrollToMiddle } from "./constants";
 import Skeleton from "./components/skeleton";
 
+//TODO: add stiemap and stuff for SEO
+
 const renderCards = packages.map((item, index: number) => {
   return (
     <div
