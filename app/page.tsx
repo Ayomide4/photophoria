@@ -12,13 +12,14 @@ import Button from "./components/Button";
 import { scrollToMiddle } from "./constants";
 import Skeleton from "./components/skeleton";
 
-//TODO: add stiemap and stuff for SEO
+//TODO: add sitemap and stuff for SEO
+// - add analytics?
 
 const renderCards = packages.map((item, index: number) => {
   return (
     <div
       key={item.title}
-      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-8 py-6 justify-between min-h-[400px] items-center 2xl:w-[400px]"
+      className="relative flex-shrink-0 flex flex-col w-[320px] bg-white rounded-3xl px-4 md:px-8 py-6 justify-between min-h-[400px] items-center 2xl:w-[400px]"
     >
       {/* Title with Fixed Height */}
       <div className="h-[60px] flex items-center">
@@ -149,7 +150,7 @@ export default function Home() {
         </h2>
 
         <div
-          className="flex overflow-x-auto lg:overflow-visible gap-4 no-scrollbar w-full px-4 lg:items-center lg:justify-center"
+          className="flex overflow-x-auto lg:overflow-visible gap-2 md:gap-4 no-scrollbar w-full px-4 lg:items-center lg:justify-center"
           ref={containerRef}
         >
           {renderCards}
@@ -225,7 +226,7 @@ export default function Home() {
 
         <div
           ref={testimonialsRef}
-          className="flex overflow-x-auto gap-4 pb-4 no-scrollbar w-96 px-4 md:w-full xl:overflow-visible xl:justify-center"
+          className="flex overflow-x-auto gap-2 md:gap-4 pb-4 no-scrollbar w-96 px-4 md:w-full xl:overflow-visible xl:justify-center"
         >
           {renderTestimonials}
         </div>

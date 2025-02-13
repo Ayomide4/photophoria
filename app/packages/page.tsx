@@ -73,7 +73,7 @@ export default function Package() {
         <div className="w-full flex justify-center">
           <div
             ref={packageRef}
-            className="flex gap-6 overflow-x-auto md:flex md:overflow-x-scroll md:snap-x md:snap-mandatory 
+            className="flex gap-2 md:gap-6 overflow-x-auto md:flex md:overflow-x-scroll md:snap-x md:snap-mandatory 
             md:scroll-pl-24 md:px-4 lg:grid lg:grid-cols-3 lg:gap-8 "
           >
             {renderPackages}
@@ -89,7 +89,7 @@ export default function Package() {
         <div className="w-full flex justify-center">
           <div
             ref={addonsRef}
-            className="flex gap-6 overflow-x-auto md:flex md:overflow-x-scroll md:snap-x md:snap-mandatory 
+            className="flex gap-2 md:gap-6 overflow-x-auto md:flex md:overflow-x-scroll md:snap-x md:snap-mandatory 
             md:scroll-pl-24 md:px-4 lg:grid lg:grid-cols-3 lg:gap-8"
           >
             {renderAddons}
@@ -105,7 +105,7 @@ export default function Package() {
         <div className="w-full flex justify-center">
           <div
             ref={techRef}
-            className="flex gap-4 overflow-x-auto md:flex md:overflow-x-scroll md:snap-x md:snap-mandatory 
+            className="flex gap-2 md:gap-4 overflow-x-auto md:flex md:overflow-x-scroll md:snap-x md:snap-mandatory 
             md:scroll-pl-24 md:px-4 lg:grid lg:grid-cols-3 xl:gap-8"
           >
             {renderTech}
