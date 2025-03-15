@@ -78,10 +78,14 @@ export async function POST(req: NextRequest) {
         { status: 200 },
       );
     } catch (emailError) {
-      console.error("Error sending email:", emailError);
+      const errorMessage =
+        emailError instanceof Error ? emailError.message : "An unknown error occurred";
+
+      console.error("Error sending email:", errorMessage);
+
       return NextResponse.json(
-        { message: "Failed to send email", error: emailError.message },
-        { status: 500 },
+        { message: "Failed to send email", error: errorMessage },
+        { status: 500 }
       );
     }
   } catch (error) {
