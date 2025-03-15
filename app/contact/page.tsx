@@ -24,8 +24,8 @@ export default function ContactPage() {
   });
 
   const [errors, setErrors] = useState<ValidationErrors>({});
-  const [, setLoading] = useState(false);
-  const [, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const validateForm = (): boolean => {
     const newErrors: ValidationErrors = {};
@@ -61,8 +61,19 @@ export default function ContactPage() {
     } else {
       const selectedDate = new Date(formData.eventDate);
       const today = new Date();
+
+      // Reset time to start of day for fair comparison
+      today.setHours(0, 0, 0, 0);
+
       if (selectedDate < today) {
         newErrors.eventDate = "Event date cannot be in the past";
+      }
+
+      // Check if date is too far in the future (more than 1 year)
+      const oneYearFromNow = new Date();
+      oneYearFromNow.setFullYear(oneYearFromNow.getFullYear() + 1);
+      if (selectedDate > oneYearFromNow) {
+        newErrors.eventDate = "Event date cannot be more than 1 year in the future";
       }
     }
 
@@ -114,7 +125,7 @@ export default function ContactPage() {
       const result = await response.json();
       console.log(result);
       if (response.ok) {
-        setMessage("Your message has been sent!");
+        setMessage("Your message has been sent! We'll get back to you as soon as possible.");
         setFormData({
           fullName: "",
           email: "",
@@ -125,7 +136,7 @@ export default function ContactPage() {
           eventDetails: "",
         });
       } else {
-        setMessage("Failed to send message. Please try again.");
+        setMessage("Failed to send message. Please try again or contact us directly at info@photophoria.co");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -173,9 +184,8 @@ export default function ContactPage() {
             value={formData.fullName}
             onChange={handleChange}
             required
-            className={`w-full p-2 border rounded-lg ${
-              errors.fullName ? "border-red-500" : "border-gray-300"
-            }`}
+            className={`w-full p-2 border rounded-lg ${errors.fullName ? "border-red-500" : "border-gray-300"
+              }`}
           />
           {renderError("fullName")}
         </div>
@@ -189,9 +199,8 @@ export default function ContactPage() {
             value={formData.email}
             onChange={handleChange}
             required
-            className={`w-full p-2 border rounded-lg ${
-              errors.email ? "border-red-500" : "border-gray-300"
-            }`}
+            className={`w-full p-2 border rounded-lg ${errors.email ? "border-red-500" : "border-gray-300"
+              }`}
           />
           {renderError("email")}
         </div>
@@ -205,9 +214,8 @@ export default function ContactPage() {
             value={formData.phone}
             onChange={handleChange}
             required
-            className={`w-full p-2 border rounded-lg ${
-              errors.phone ? "border-red-500" : "border-gray-300"
-            }`}
+            className={`w-full p-2 border rounded-lg ${errors.phone ? "border-red-500" : "border-gray-300"
+              }`}
           />
           {renderError("phone")}
         </div>
@@ -220,9 +228,8 @@ export default function ContactPage() {
             value={formData.package}
             onChange={handleChange}
             required
-            className={`w-full p-2 border rounded-lg ${
-              errors.package ? "border-red-500" : "border-gray-300"
-            }`}
+            className={`w-full p-2 border rounded-lg ${errors.package ? "border-red-500" : "border-gray-300"
+              }`}
           >
             <option value="">Choose a Package</option>
             <option value="standard">Standard Package</option>
@@ -241,9 +248,10 @@ export default function ContactPage() {
             value={formData.eventDate}
             onChange={handleChange}
             required
-            className={`w-full p-2 border rounded-lg ${
-              errors.eventDate ? "border-red-500" : "border-gray-300"
-            }`}
+            min={new Date().toISOString().split('T')[0]} // Today's date as minimum
+            max={new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]} // 1 year from today as maximum
+            className={`w-full p-2 border rounded-lg ${errors.eventDate ? "border-red-500" : "border-gray-300"
+              }`}
           />
           {renderError("eventDate")}
         </div>
@@ -256,12 +264,11 @@ export default function ContactPage() {
             value={formData.addons}
             onChange={handleChange}
             required
-            className={`w-full p-2 border rounded-lg ${
-              errors.addons ? "border-red-500" : "border-gray-300"
-            }`}
+            className={`w-full p-2 border rounded-lg ${errors.addons ? "border-red-500" : "border-gray-300"
+              }`}
           >
             <option value="">Choose Add-ons</option>
-            <option value="">None</option>
+            <option value="none">None</option>
             <option value="additional-hours">Additional Hours</option>
             <option value="colored-backdrop">Colored Backdrop</option>
             <option value="custom-flower-walls">Custom Flower Walls</option>
@@ -277,19 +284,31 @@ export default function ContactPage() {
             value={formData.eventDetails}
             onChange={handleChange}
             rows={4}
-            className={`w-full p-2 border rounded-lg ${
-              errors.eventDetails ? "border-red-500" : "border-gray-300"
-            }`}
+            className={`w-full p-2 border rounded-lg ${errors.eventDetails ? "border-red-500" : "border-gray-300"
+              }`}
           ></textarea>
           {renderError("eventDetails")}
         </div>
 
+        {/* Message Display */}
+        {message && (
+          <div
+            className={`p-3 rounded-lg text-center ${message.includes("error") || message.includes("Failed")
+                ? "bg-red-100 text-red-700"
+                : "bg-green-100 text-green-700"
+              }`}
+          >
+            {message}
+          </div>
+        )}
+
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-primary text-black font-bold py-2 rounded-lg"
+          className="w-full bg-primary text-black font-bold py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={loading}
         >
-          Submit
+          {loading ? "Sending..." : "Submit"}
         </button>
       </form>
     </div>
