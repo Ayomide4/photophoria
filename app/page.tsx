@@ -100,9 +100,12 @@ export default function Home() {
               Your Moment, Perfectly Captured
             </h1>
           </div>
-          <button className="md:hidden w-full h-10 rounded-full bg-primary text-lg font-bold mb-4 xl:text-xl 2xl:text-2xl">
+          <Link
+            href="/contact"
+            className="md:hidden bg-primary text-black text-xl font-bold rounded-full px-4 py-4 mt-2 w-full flex items-center justify-center h-12 mb-4 md:w-52 lg:w-72 xl:w-80 2xl:w-96 xl:text-3xl 2xl:text-3xl xl:h-14 2xl:h-16"
+          >
             Book Now
-          </button>
+          </Link>
           <div className="hidden md:block md:absolute bottom-8 right-4 xl:bottom-12 xl:right-8 2xl:bottom-16 2xl:right-12">
             <Button text="Book Now" link="contact" />
           </div>
