@@ -60,6 +60,8 @@ export default function Footer() {
               INFO@PHOTOPHORIA.CO
             </a>
           </div>
+
+          <a href="tel:+18179623570" className="lg:text-lg xl:text-xl 2xl:text-2xl">+1 (817) 962-3570</a>
         </div>
 
         {/* SOCIAL */}

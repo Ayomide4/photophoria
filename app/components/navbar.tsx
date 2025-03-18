@@ -101,9 +101,10 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <div>
-                <a href="mailto:info@photophoria.co">INFO@PHOTOPHORIA.CO</a>
-              </div>
+              <a href="mailto:info@photophoria.co">INFO@PHOTOPHORIA.CO</a>
+
+
+              <a href="tel:+18179623570" >+1 (817) 962-3570</a>
             </div>
           </motion.div>
         )}

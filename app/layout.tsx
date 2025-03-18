@@ -66,7 +66,7 @@ export default function RootLayout({
       className={`${museoModerno.variable} ${redHatDisplay.variable}`}
     >
       <head>
-        <script 
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -89,7 +89,7 @@ export default function RootLayout({
                 "latitude": "40.7128",
                 "longitude": "-74.0060"
               },
-              "telephone": "+1-555-123-4567",
+              "telephone": "+1 (817)-962-3570",
               "email": "info@photophoria.com",
               "url": "https://photophoria.com",
               "openingHoursSpecification": [

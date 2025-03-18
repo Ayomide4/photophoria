@@ -136,7 +136,7 @@ export default function ContactPage() {
           eventDetails: "",
         });
       } else {
-        setMessage("Failed to send message. Please try again or contact us directly at info@photophoria.co");
+        setMessage("Failed to send message. Please try again or contact us directly at info@photophoria.co  or +1 (817) 962-3570");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -294,8 +294,8 @@ export default function ContactPage() {
         {message && (
           <div
             className={`p-3 rounded-lg text-center ${message.includes("error") || message.includes("Failed")
-                ? "bg-red-100 text-red-700"
-                : "bg-green-100 text-green-700"
+              ? "bg-red-100 text-red-700"
+              : "bg-green-100 text-green-700"
               }`}
           >
             {message}
