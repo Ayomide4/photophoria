@@ -113,9 +113,8 @@ export default function Gallery() {
                   src={src}
                   alt={`Gallery image ${i + 1}`}
                   fill
-                  className={`cursor-pointer rounded-lg object-cover transition-opacity duration-500 ${
-                    loadingImages.has(src) ? "opacity-0" : "opacity-100"
-                  }`}
+                  className={`cursor-pointer rounded-lg object-cover transition-opacity duration-500 ${loadingImages.has(src) ? "opacity-0" : "opacity-100"
+                    }`}
                   onClick={() => setSelectedImage(src)}
                   onLoad={() => handleImageLoad(src)}
                   onLoadingComplete={() => handleImageLoad(src)}
